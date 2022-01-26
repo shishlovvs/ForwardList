@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -23,9 +23,9 @@ class List
 			cout << "EDestructor:\t" << this << endl;
 		}
 		friend class List;
-	}*Head, * Tail;//Объявляем два указателя сразу же после описания класса
-	//Эти указатели будут переменными членами класса List.
-	size_t size;	//Размер списка
+	}*Head, * Tail;//РћР±СЉСЏРІР»СЏРµРј РґРІР° СѓРєР°Р·Р°С‚РµР»СЏ СЃСЂР°Р·Сѓ Р¶Рµ РїРѕСЃР»Рµ РѕРїРёСЃР°РЅРёСЏ РєР»Р°СЃСЃР°
+	//Р­С‚Рё СѓРєР°Р·Р°С‚РµР»Рё Р±СѓРґСѓС‚ РїРµСЂРµРјРµРЅРЅС‹РјРё С‡Р»РµРЅР°РјРё РєР»Р°СЃСЃР° List.
+	size_t size;	//Р Р°Р·РјРµСЂ СЃРїРёСЃРєР°
 public:
 	class Iterator
 	{
@@ -155,7 +155,7 @@ public:
 
 	List()
 	{
-		Head = Tail = nullptr;	//Если список пуст, его Голова и Хвост указывают на 0
+		Head = Tail = nullptr;	//Р•СЃР»Рё СЃРїРёСЃРѕРє РїСѓСЃС‚, РµРіРѕ Р“РѕР»РѕРІР° Рё РҐРІРѕСЃС‚ СѓРєР°Р·С‹РІР°СЋС‚ РЅР° 0
 		size = 0;
 		cout << "LConstructor:\t" << this << endl;
 	}
@@ -170,7 +170,7 @@ public:
 	List(const List& other) :List()
 	{
 		//for (Element* Temp = other.Head; Temp; Temp = Temp->pNext)this->push_back(Temp->Data);
-		*this = other;	//Из конструктора копирования вызываем оператор присваивания
+		*this = other;	//РР· РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РєРѕРїРёСЂРѕРІР°РЅРёСЏ РІС‹Р·С‹РІР°РµРј РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 		cout << "LCopyConstructor:\t" << this << endl;
 	}
 	~List()
@@ -195,8 +195,8 @@ public:
 	{
 		if (Head == nullptr && Tail == nullptr)
 		{
-			//Когда в списке появляется первый элемент, 
-			//он одновременно является и Головой и Хвостом.
+			//РљРѕРіРґР° РІ СЃРїРёСЃРєРµ РїРѕСЏРІР»СЏРµС‚СЃСЏ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚, 
+			//РѕРЅ РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ СЏРІР»СЏРµС‚СЃСЏ Рё Р“РѕР»РѕРІРѕР№ Рё РҐРІРѕСЃС‚РѕРј.
 			Head = Tail = new Element(Data);
 			size++;
 			return;
@@ -214,7 +214,7 @@ public:
 	{
 		if (Index >= size)
 		{
-			cout << "Error: Выход за пределы списка!" << endl;
+			cout << "Error: Р’С‹С…РѕРґ Р·Р° РїСЂРµРґРµР»С‹ СЃРїРёСЃРєР°!" << endl;
 			return;
 		}
 
@@ -271,7 +271,7 @@ public:
 		for (Element* Temp = Head; Temp; Temp = Temp->pNext)
 			cout << Temp->pPrev << tab << Temp << tab << Temp->Data << tab << Temp->pNext << endl;
 		cout << "Tail:\t" << Tail << endl;
-		cout << "Количество элементов списка: " << size << endl;
+		cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ СЃРїРёСЃРєР°: " << size << endl;
 	}
 	void reverse_print()const
 	{
@@ -289,7 +289,7 @@ void main()
 	setlocale(LC_ALL, "");
 #ifdef BASE_CHECK
 	int n;
-	cout << "Введите размер списка: "; cin >> n;
+	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ СЃРїРёСЃРєР°: "; cin >> n;
 	List list;
 	for (int i = 0; i < n; i++)
 	{
@@ -302,8 +302,8 @@ void main()
 	list.pop_back();*/
 	int index;
 	int value;
-	cout << "Введите индекс добавляемого элемента: "; cin >> index;
-	cout << "Введите значение добавляемого элемента: "; cin >> value;
+	cout << "Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: "; cin >> index;
+	cout << "Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: "; cin >> value;
 	list.insert(value, index);
 	list.print();
 	list.reverse_print();
